@@ -1,0 +1,19 @@
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<h2>Books</h2>
+<ul>
+    {% for books in object_list %}
+        <li>{{ books.title }}</li>
+        <ul>
+        <li>Author(s):
+            {% for name in books.authors.all %}
+                {{ name }},
+            {% endfor %}
+        </li>
+        <li>Published on: {{ books.publication_date }}</li>
+        <li>Average rating: {{ books.average_ratings }}</li>
+        <li>Total ratings: {{ books.ratings_count }}</li>
+        <li><img src={{ books.cover_image_url }} alt="" style="width: 200px"></li>
+
+        </ul>
+    {% endfor %}
+</ul>
